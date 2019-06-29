@@ -5,16 +5,29 @@
   </Configs>
   <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\bgm_trapped</sound>
+    <sounds name="sounds">
+      <sound>sound\snd_player_walk</sound>
+      <sound>sound\snd_player_jump</sound>
+      <sound>sound\snd_thud</sound>
+      <sound>sound\snd_bonk_head</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_slope</sprite>
     <sprite>sprites\spr_slope_lr</sprite>
+    <sprites name="characters">
+      <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_npc_fio</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_maze</background>
+    <background>background\tile_cave</background>
+    <background>background\tile_shadow</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -23,6 +36,7 @@
       <script>scripts\scr_set_anim.gml</script>
       <script>scripts\scr_play_anim.gml</script>
       <script>scripts\scr_init_anim.gml</script>
+      <script>scripts\scr_draw_self_centered.gml</script>
     </scripts>
     <script>scripts\array.gml</script>
     <scripts name="collision">
@@ -43,8 +57,10 @@
     <object>objects\obj_water</object>
     <object>objects\obj_slope</object>
     <object>objects\obj_slope2</object>
+    <object>objects\obj_npc_fio</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_firstcave</room>
     <room>rooms\room0</room>
   </rooms>
   <constants number="1">

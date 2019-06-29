@@ -36,6 +36,7 @@ if(blockd){
     else
     {
         blockedWall=false;
+        
         while(true){
             newy+=1;
             

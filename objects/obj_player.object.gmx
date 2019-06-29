@@ -49,7 +49,8 @@ scr_player();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_player_aftermove();
+            <string>scr_player_move();
+scr_player_aftermove();
 </string>
           </argument>
         </arguments>
@@ -72,8 +73,7 @@ scr_player();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_player_move();
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -102,6 +102,7 @@ scr_player_walk();
 scr_player_jump();
 scr_player_fall();
 scr_player_anim();
+scr_player_sound();
 
 </string>
           </argument>
@@ -122,6 +123,29 @@ scr_player_anim();
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_draw_self_centered();
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>

@@ -6,21 +6,21 @@
 scr_player_const();
 scr_player_state();
 
-A_IDLE_LEFT = array(0);
-A_JUMP_LEFT = array(2);
-A_FALL_LEFT = array(1);
-A_WALK_LEFT = array(2,0,1,0);
-A_UP_LEFT = array(3,4,3,5);
+A_IDLE = array(0);
+A_JUMP = array(2);
+A_FALL = array(1);
+A_WALK = array(2,0,1,0);
 
-A_IDLE_RIGHT = array(11);
-A_JUMP_RIGHT = array(13);
-A_FALL_RIGHT = array(12);
-A_WALK_RIGHT = array(13,11,12,11);
-A_UP_RIGHT = array(14,15,14,16);
+A_IDLEUP = array(3);
+A_JUMPUP = array(5);
+A_FALLUP = array(4);
+A_WALKUP = array(5,3,4,3);
 
+A_JUMPDOWN = array(6);
+A_FALLDOWN = array(7);
+A_INSPECT = array(8);
 
-
-scr_set_anim(spr_player, A_IDLE_LEFT, 0);
+scr_set_anim(spr_player, A_IDLE, 0);
 
 
 #define scr_player_const
@@ -32,7 +32,7 @@ enum physicsType{
 }
 
 REPEL_SPEED = 1*CSF;
-SLOPE_RANGE = 10;
+SLOPE_RANGE = 5;
 
 //Land
 WALK_SPEED[physicsType.LAND] = $32c;
@@ -63,7 +63,8 @@ JUMP_VELOCITY[physicsType.WATER] = $280;
 #define scr_player_state
 ///scr_player_state()
 
-curdir = 1;
+curdir = -1;
+curVertDir = 0;
 
 lookaway = false;
 walking = false;
@@ -72,6 +73,9 @@ drown = false;
 disabled = false;
 hide = false;
 jumping = false;
+
+prevImageIndex = 0;
+prevWalking = false;
 
 onSlopeL = false;
 onSlopeR = false;
@@ -102,6 +106,7 @@ if (keyboard_check_pressed(obj_controller.btnJump))
       {
         jumping = true;
         yInertia -= JUMP_VELOCITY[state];
+        audio_play_sound(snd_player_jump,10,false);
       }
     }
 }
@@ -117,6 +122,17 @@ if(blockd)
 else 
     walkAccel = JUMP_WALK_ACCEL[state];
 
+//Check Up/Down
+if(keyboard_check(obj_controller.btnUp)){
+    curVertDir = -1;
+}
+else if(!blockd && keyboard_check(obj_controller.btnDown)){
+    curVertDir = 1;
+}
+else{
+    curVertDir = 0;
+}
+    
 //Check left
 if(keyboard_check(obj_controller.btnLeft)){
     curdir = -1;
@@ -195,15 +211,18 @@ if (blockd && yInertia >= 0)
       //of a high inertia when he hit it
       if (blockl)
       {
-        if (!ceilSlopeL && xInertia < - $180)
-          xInertia = -$180;
+        if (xInertia < - $180){
+            xInertia = -$180;
+          
+          }
         if (xInertia < 0 && !keyboard_check(obj_controller.btnLeft))
           xInertia = 0;
       }
       if (blockr)
       {
-        if (!ceilSlopeR && xInertia > $180)
+        if (xInertia > $180){
           xInertia = $180;
+          }
         if (xInertia > 0 && !keyboard_check(obj_controller.btnRight))
           xInertia = 0;
       }
@@ -245,6 +264,7 @@ if (xInertia > FALL_SPEED[state])
     xInertia = FALL_SPEED[state];
 if (xInertia < -FALL_SPEED[state])
     xInertia = -FALL_SPEED[state];
+
 if (yInertia > FALL_SPEED[state])
     yInertia = FALL_SPEED[state];
 if (yInertia < -FALL_SPEED[state])
@@ -252,66 +272,91 @@ if (yInertia < -FALL_SPEED[state])
 if (blockd && yInertia > 0)
     yInertia = 0;
     
-scr_apply_yInertia(yInertia);
 
 if (xInertia > DECEL_SPEED[state] || xInertia < -DECEL_SPEED[state])
 {
     scr_apply_xInertia(xInertia);
 }
 
+scr_apply_yInertia(yInertia);
+
 #define scr_player_anim
 
 if(!blockd){
     if(jumping){
-        if(curdir > 0){
-            scr_set_anim(spr_player, A_JUMP_RIGHT, 0);
-        }
-        if(curdir < 0){
-            scr_set_anim(spr_player, A_JUMP_LEFT, 0);
-        }
+        if(curVertDir == -1)
+            scr_set_anim(spr_player, A_JUMPUP, 0);
+        else if(curVertDir == 1)
+            scr_set_anim(spr_player, A_JUMPDOWN, 0);
+        else
+            scr_set_anim(spr_player, A_JUMP, 0);
     }
     else {
-        if(curdir > 0){
-            scr_set_anim(spr_player, A_FALL_RIGHT, 0);
-        }
-        if(curdir < 0){
-            scr_set_anim(spr_player, A_FALL_LEFT, 0);
-        }
+        if(curVertDir == -1)
+            scr_set_anim(spr_player, A_FALLUP, 0);
+        else if(curVertDir == 1)
+            scr_set_anim(spr_player, A_FALLDOWN, 0);
+        else
+            scr_set_anim(spr_player, A_FALL, 0);
     }
 }
 else if(walking){
-    if(curdir > 0){
-        scr_set_anim(spr_player, A_WALK_RIGHT, 0.15);
-    }
-    if(curdir < 0){
-        scr_set_anim(spr_player, A_WALK_LEFT, 0.15);
-    }
+    if(curVertDir == -1)
+        scr_set_anim(spr_player, A_WALKUP, 0.15);
+    else
+        scr_set_anim(spr_player, A_WALK, 0.15);
 }
 else
 {
-    if(curdir > 0){
-        scr_set_anim(spr_player, A_IDLE_RIGHT, 0);
-    }
-    if(curdir < 0){
-        scr_set_anim(spr_player, A_IDLE_LEFT, 0);
-    }
+    if(curVertDir == -1)
+        scr_set_anim(spr_player, A_IDLEUP, 0);
+    else
+        scr_set_anim(spr_player, A_IDLE, 0);
+
 }
 
 #define scr_player_aftermove
 // handle landing and bonking head
 if (blockd && yInertia > 0)
 {
-  yInertia      = 0;
-  jumping       = 0;
+    if (yInertia > $400 && !hide){
+        audio_play_sound(snd_thud, 10, false);
+    }
+
+    yInertia = 0;
+    jumping = 0;
 }
 else if (blocku && yInertia < 0)
 {
-  // he behaves a bit differently when bonking his head on a
-  // solid-brick object vs. bonking his head on the map.
 
-  
-  yInertia = 0;
-  jumping = false;
-    
+    if (yInertia < -$200 && !hide && blocku){
+        audio_play_sound(snd_bonk_head, 10, false);
+    }
+
+    yInertia = 0;
+    jumping = false;
+      
 }
+
+
+prevWalking = walking;
+
+
 #define scr_player_repel
+
+#define scr_player_sound
+if(prevImageIndex != image_index) {
+    prevImageIndex = image_index;
+
+    if(walking){
+        if(image_index == 0 || image_index == 3){
+            audio_play_sound(snd_player_walk,10,false);
+        }
+    }
+}
+
+    
+if(prevWalking!=walking && !walking && blockd){
+    audio_play_sound(snd_player_walk,10,false);
+}
+
