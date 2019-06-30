@@ -21,7 +21,11 @@
     <sprite>sprites\spr_slope_lr</sprite>
     <sprites name="characters">
       <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_berserk_player</sprite>
       <sprite>sprites\spr_npc_fio</sprite>
+    </sprites>
+    <sprites name="particles">
+      <sprite>sprites\spr_star</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -46,10 +50,18 @@
       <script>scripts\scr_move_slope.gml</script>
       <script>scripts\scr_check_water.gml</script>
     </scripts>
+    <scripts name="water">
+      <script>scripts\scr_numeric_springing.gml</script>
+      <script>scripts\scr_array_smooth_1d.gml</script>
+      <script>scripts\scr_make_splash.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_green.shader</shader>
   </shaders>
+  <fonts name="fonts">
+    <font>fonts\fnt_text</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_controller</object>
@@ -58,6 +70,11 @@
     <object>objects\obj_slope</object>
     <object>objects\obj_slope2</object>
     <object>objects\obj_npc_fio</object>
+    <objects name="eyecandy">
+      <objects name="headbonk">
+        <object>objects\obj_star_caret</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_firstcave</room>

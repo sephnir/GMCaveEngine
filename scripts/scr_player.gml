@@ -16,11 +16,11 @@ A_JUMPUP = array(5);
 A_FALLUP = array(4);
 A_WALKUP = array(5,3,4,3);
 
-A_JUMPDOWN = array(6);
-A_FALLDOWN = array(7);
+A_JUMPDOWN = array(7);
+A_FALLDOWN = array(6);
 A_INSPECT = array(8);
 
-scr_set_anim(spr_player, A_IDLE, 0);
+scr_set_anim(spriteIndex, A_IDLE, 0);
 
 
 #define scr_player_const
@@ -62,6 +62,8 @@ JUMP_VELOCITY[physicsType.WATER] = $280;
 
 #define scr_player_state
 ///scr_player_state()
+
+spriteIndex = spr_player;
 
 curdir = -1;
 curVertDir = 0;
@@ -285,33 +287,33 @@ scr_apply_yInertia(yInertia);
 if(!blockd){
     if(jumping){
         if(curVertDir == -1)
-            scr_set_anim(spr_player, A_JUMPUP, 0);
+            scr_set_anim(spriteIndex, A_JUMPUP, 0);
         else if(curVertDir == 1)
-            scr_set_anim(spr_player, A_JUMPDOWN, 0);
+            scr_set_anim(spriteIndex, A_JUMPDOWN, 0);
         else
-            scr_set_anim(spr_player, A_JUMP, 0);
+            scr_set_anim(spriteIndex, A_JUMP, 0);
     }
     else {
         if(curVertDir == -1)
-            scr_set_anim(spr_player, A_FALLUP, 0);
+            scr_set_anim(spriteIndex, A_FALLUP, 0);
         else if(curVertDir == 1)
-            scr_set_anim(spr_player, A_FALLDOWN, 0);
+            scr_set_anim(spriteIndex, A_FALLDOWN, 0);
         else
-            scr_set_anim(spr_player, A_FALL, 0);
+            scr_set_anim(spriteIndex, A_FALL, 0);
     }
 }
 else if(walking){
     if(curVertDir == -1)
-        scr_set_anim(spr_player, A_WALKUP, 0.15);
+        scr_set_anim(spriteIndex, A_WALKUP, 0.15);
     else
-        scr_set_anim(spr_player, A_WALK, 0.15);
+        scr_set_anim(spriteIndex, A_WALK, 0.15);
 }
 else
 {
     if(curVertDir == -1)
-        scr_set_anim(spr_player, A_IDLEUP, 0);
+        scr_set_anim(spriteIndex, A_IDLEUP, 0);
     else
-        scr_set_anim(spr_player, A_IDLE, 0);
+        scr_set_anim(spriteIndex, A_IDLE, 0);
 
 }
 
@@ -330,6 +332,9 @@ else if (blocku && yInertia < 0)
 {
 
     if (yInertia < -$200 && !hide && blocku){
+        instance_create(x+sprite_width/2 , bbox_top, obj_star_caret);    
+        instance_create(x+sprite_width/2 , bbox_top, obj_star_caret);   
+    
         audio_play_sound(snd_bonk_head, 10, false);
     }
 
@@ -343,6 +348,7 @@ prevWalking = walking;
 
 
 #define scr_player_repel
+
 
 #define scr_player_sound
 if(prevImageIndex != image_index) {
@@ -359,4 +365,3 @@ if(prevImageIndex != image_index) {
 if(prevWalking!=walking && !walking && blockd){
     audio_play_sound(snd_player_walk,10,false);
 }
-
