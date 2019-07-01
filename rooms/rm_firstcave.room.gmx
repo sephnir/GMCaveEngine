@@ -153,7 +153,7 @@
   </instances>
   <tiles>
     <tile bgName="tile_cave" x="640" y="352" w="64" h="64" xo="288" yo="96" id="10000672" name="inst_BF2F7EDE" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tile_cave" x="768" y="416" w="32" h="32" xo="288" yo="64" id="10000673" name="inst_9832C00F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_cave" x="448" y="416" w="32" h="32" xo="288" yo="64" id="10000673" name="inst_9832C00F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_maze" x="64" y="320" w="32" h="32" xo="0" yo="0" id="10000547" name="inst_C7369463" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_maze" x="64" y="32" w="32" h="32" xo="0" yo="0" id="10000548" name="inst_63178A3B" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_maze" x="736" y="96" w="32" h="32" xo="0" yo="0" id="10000549" name="inst_714BBF60" depth="0" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

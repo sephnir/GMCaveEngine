@@ -12,6 +12,7 @@
       <sound>sound\snd_player_jump</sound>
       <sound>sound\snd_thud</sound>
       <sound>sound\snd_bonk_head</sound>
+      <sound>sound\snd_splash</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -24,8 +25,10 @@
       <sprite>sprites\spr_berserk_player</sprite>
       <sprite>sprites\spr_npc_fio</sprite>
     </sprites>
-    <sprites name="particles">
+    <sprites name="effect">
       <sprite>sprites\spr_star</sprite>
+      <sprite>sprites\spr_droplet</sprite>
+      <sprite>sprites\spr_splash</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -73,6 +76,8 @@
     <objects name="eyecandy">
       <objects name="headbonk">
         <object>objects\obj_star_caret</object>
+        <object>objects\obj_droplet</object>
+        <object>objects\obj_splash</object>
       </objects>
     </objects>
   </objects>

@@ -96,6 +96,7 @@ xInertia = 0;
 yInertia = 0;
 
 state = physicsType.LAND;
+prevState = physicsType.LAND;
 
 #define scr_player_jump
 
