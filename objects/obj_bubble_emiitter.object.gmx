@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
-  <persistent>-1</persistent>
+  <depth>0</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,29 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Init
-
-//Button setup
-btnLeft = vk_left;
-btnRight = vk_right;
-btnUp = vk_up;
-btnDown = vk_down;
-btnJump = ord('Z');
-btnShoot = ord('X');
-btnMap = ord('Q');
-btnInv = ord('W');
-btnWpnUp = ord('A');
-btnWpnDown = ord('S');
-btnPause = vk_escape;
-
-//Textbox setup
-scr_textbox();
-
-
+            <string>ctimer = random(50);
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -64,54 +48,11 @@ scr_textbox();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Play bgm
-audio_play_sound(bgm_trapped, 5,true);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>223</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_current_room</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_text(10,10,"xinertia:"+ string( obj_player.xInertia));
-draw_text(10,30,"yinertia:"+ string( obj_player.yInertia));
-draw_text(10,50,"x diff:"+ string( obj_player.x - obj_player.xprevious));
-draw_text(10,70,"y diff:"+ string( obj_player.y - obj_player.yprevious));
-draw_text(10,90,"onSlopeL:"+ string( obj_player.onSlopeL));
-draw_text(10,110,"onSlopeR:"+ string( obj_player.onSlopeR));
-
-scr_textbox_drawFrame(MSG_X,MSG_NORMAL_Y,MSG_W,MSG_H);
+            <string>if(ctimer&gt;100){
+    instance_create(x+random(32),y+32, obj_bubble);
+    ctimer = random(50);
+}
+ctimer++;
 </string>
           </argument>
         </arguments>

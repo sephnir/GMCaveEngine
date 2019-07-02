@@ -3,7 +3,7 @@
   <spriteName>spr_droplet</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
+  <depth>20</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,6 +29,8 @@
 yInertia = -$200 + random($400);
 
 ctimer = 0;
+
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -56,9 +58,12 @@ if(yInertia &gt;$5ff) yInertia =$5ff;
 
 ctimer++;
 
-image_index = floor(random(5));
+if(ctimer mod 4 == 0){
+    image_index = floor(random(5));
+    image_alpha = 0.5 + random(0.5);
+}
 
-if(ctimer &gt; 10){
+if(ctimer &gt; 30){
     if(!place_free(x,y)){
         instance_destroy(self);
     }
@@ -74,36 +79,54 @@ y+= yInertia/CSF;
     <event eventtype="4" ename="obj_water">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(ctimer &gt; 30){
+    instance_destroy(self);
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="4" ename="obj_blocks">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(ctimer &gt; 30){
+    instance_destroy(self);
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="0">
+    <event eventtype="7" enumb="40">
       <action>
         <libid>1</libid>
         <id>203</id>

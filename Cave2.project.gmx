@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <datafiles number="1" name="datafiles"/>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Lens flare</extension>
+    <extension index="1">extensions\Dynamic Lights &amp; Shadows</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\bgm_trapped</sound>
     <sounds name="sounds">
@@ -28,7 +31,18 @@
     <sprites name="effect">
       <sprite>sprites\spr_star</sprite>
       <sprite>sprites\spr_droplet</sprite>
+      <sprite>sprites\spr_bubble</sprite>
       <sprite>sprites\spr_splash</sprite>
+      <sprite>sprites\spr_lightball</sprite>
+      <sprite>sprites\spr_lightball_mini</sprite>
+    </sprites>
+    <sprites name="Lens Flare">
+      <sprite>sprites\Siris</sprite>
+      <sprite>sprites\Sring</sprite>
+      <sprite>sprites\Sglow</sprite>
+    </sprites>
+    <sprites name="text">
+      <sprite>sprites\spr_text_sheet</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -58,6 +72,13 @@
       <script>scripts\scr_array_smooth_1d.gml</script>
       <script>scripts\scr_make_splash.gml</script>
     </scripts>
+    <script>scripts\scr_draw_lensflare.gml</script>
+    <scripts name="controller">
+      <scripts name="dialog">
+        <script>scripts\scr_textbox.gml</script>
+        <script>scripts\scr_dialog.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_green.shader</shader>
@@ -76,8 +97,17 @@
     <objects name="eyecandy">
       <objects name="headbonk">
         <object>objects\obj_star_caret</object>
-        <object>objects\obj_droplet</object>
+      </objects>
+      <objects name="water">
         <object>objects\obj_splash</object>
+        <object>objects\obj_droplet</object>
+        <object>objects\obj_bubble</object>
+      </objects>
+      <objects name="lighting">
+        <object>objects\obj_light</object>
+      </objects>
+      <objects name="emitters">
+        <object>objects\obj_bubble_emiitter</object>
       </objects>
     </objects>
   </objects>

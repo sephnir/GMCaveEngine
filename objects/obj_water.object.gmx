@@ -245,8 +245,8 @@ draw_set_color(color);
 draw_primitive_begin(pr_trianglestrip);
 for(var i=0;i&lt;nodes;i++){
  draw_set_alpha(image_alpha);
- draw_vertex(x+i*__ndist,y+sprite_height); //Here we are making trangles going from the bottom..
- draw_vertex(x+i*__ndist,y+ypos[i]); //..to the wave tops!
+ draw_vertex_color(x+i*__ndist,y+sprite_height,color,image_alpha/5); //Here we are making trangles going from the bottom..
+ draw_vertex_color(x+i*__ndist,y+ypos[i],color,image_alpha); //..to the wave tops!
 }
 draw_primitive_end();
 

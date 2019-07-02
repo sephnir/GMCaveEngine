@@ -51,6 +51,7 @@ scr_player();
             <kind>1</kind>
             <string>scr_player_move();
 scr_player_aftermove();
+
 </string>
           </argument>
         </arguments>
@@ -142,7 +143,8 @@ scr_player_sound();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_draw_self_centered();
+            <string>
+scr_draw_self_centered();
 </string>
           </argument>
         </arguments>
