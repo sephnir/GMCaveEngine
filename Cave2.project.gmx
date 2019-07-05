@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
-    <datafiles number="2" name="script">
+  <datafiles number="12" name="datafiles">
+    <datafiles number="12" name="script">
       <datafile>
         <name>fcave.txt</name>
         <exists>-1</exists>
@@ -23,9 +23,180 @@
         <filename>fcave.txt</filename>
       </datafile>
     </datafiles>
+    <datafile>
+      <name>netlog.gmez</name>
+      <exists>-1</exists>
+      <size>1614</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>netlog.gmez</filename>
+    </datafile>
+    <datafile>
+      <name>GMLiveHelper.gmez</name>
+      <exists>-1</exists>
+      <size>33494</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>GMLiveHelper.gmez</filename>
+    </datafile>
+    <datafile>
+      <name>std.ndll</name>
+      <exists>-1</exists>
+      <size>116224</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>std.ndll</filename>
+    </datafile>
+    <datafile>
+      <name>regexp.ndll</name>
+      <exists>-1</exists>
+      <size>111616</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>regexp.ndll</filename>
+    </datafile>
+    <datafile>
+      <name>neko.dll</name>
+      <exists>-1</exists>
+      <size>101888</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>neko.dll</filename>
+    </datafile>
+    <datafile>
+      <name>gmlive-server.n</name>
+      <exists>-1</exists>
+      <size>140364</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gmlive-server.n</filename>
+    </datafile>
+    <datafile>
+      <name>gmlive.html</name>
+      <exists>-1</exists>
+      <size>46102</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gmlive.html</filename>
+    </datafile>
+    <datafile>
+      <name>gc.dll</name>
+      <exists>-1</exists>
+      <size>81920</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gc.dll</filename>
+    </datafile>
+    <datafile>
+      <name>gmlive-server.exe</name>
+      <exists>-1</exists>
+      <size>152148</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gmlive-server.exe</filename>
+    </datafile>
+    <datafile>
+      <name>netlog.exe</name>
+      <exists>-1</exists>
+      <size>54272</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>netlog.exe</filename>
+    </datafile>
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Lens flare</extension>
+    <extension index="1">extensions\GMLive</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\bgm_trapped</sound>
@@ -78,7 +249,19 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_player.gml</script>
+    <scripts name="player">
+      <script>scripts\scr_player.gml</script>
+      <script>scripts\scr_player_const.gml</script>
+      <script>scripts\scr_player_state.gml</script>
+      <script>scripts\scr_player_jump.gml</script>
+      <script>scripts\scr_player_walk.gml</script>
+      <script>scripts\scr_player_fall.gml</script>
+      <script>scripts\scr_player_move.gml</script>
+      <script>scripts\scr_player_anim.gml</script>
+      <script>scripts\scr_player_aftermove.gml</script>
+      <script>scripts\scr_player_repel.gml</script>
+      <script>scripts\scr_player_sound.gml</script>
+    </scripts>
     <scripts name="animation">
       <script>scripts\scr_set_anim.gml</script>
       <script>scripts\scr_play_anim.gml</script>
@@ -102,7 +285,22 @@
     <scripts name="controller">
       <scripts name="dialog">
         <script>scripts\scr_dialog.gml</script>
+        <script>scripts\scr_dialog_const.gml</script>
+        <script>scripts\scr_dialog_state.gml</script>
+      </scripts>
+      <scripts name="textbox">
         <script>scripts\scr_textbox.gml</script>
+        <script>scripts\scr_textbox_const.gml</script>
+        <script>scripts\scr_textbox_state.gml</script>
+        <script>scripts\scr_textbox_drawTextbox.gml</script>
+        <script>scripts\scr_textbox_drawFace.gml</script>
+        <script>scripts\scr_textbox_addNextChar.gml</script>
+        <script>scripts\scr_textbox_addNextLine.gml</script>
+        <script>scripts\scr_textbox_drawFrame.gml</script>
+        <script>scripts\scr_textbox_destructor.gml</script>
+        <script>scripts\scr_textbox_setText.gml</script>
+        <script>scripts\scr_textbox_clearText.gml</script>
+        <script>scripts\scr_textbox_setFace.gml</script>
       </scripts>
     </scripts>
     <script>scripts\draw_tiles.gml</script>
@@ -145,12 +343,14 @@
         <object>objects\obj_droplet_emitter</object>
       </objects>
     </objects>
+    <object>objects\obj_gmlive</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_firstcave</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="2">
+  <constants number="3">
+    <constant name="live_enabled">1</constant>
     <constant name="UNIT">32</constant>
     <constant name="CSF">256</constant>
   </constants>

@@ -1,0 +1,7 @@
+#fio_fc
+FAC 0 0 0
+CLR
+MSG Please be careful.
+FAC 1 1 1
+CLR
+MSG I'll be right back.

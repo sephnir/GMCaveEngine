@@ -1,0 +1,44 @@
+// 2019-07-05 16:31:22
+#event create
+global.netlog_net_script = -1;
+if (!debug_mode && live_enabled) {
+    //if (live_restart_if_necessary()) exit; // comment out if not using GMLiveHelper
+    var q = live_script_get_index("netlog");
+    if (q >= 0) {
+        live_log_script = q;
+        global.netlog_net_script = live_script_get_index("netlog_async_net");
+        q = live_script_get_index("netlog_init");
+        if (q >= 0) {
+            // lower the connection timeout so that you don't have the game
+            // pop up one minute later if you forgot to start up netlog
+            network_set_config(network_config_connect_timeout, 7000);
+            
+            // change IP/port here if you connect to remote netlog:
+            script_execute(q, "127.0.0.1", 5101);
+        }
+    }
+} else {
+    global.netlog_ready = false;
+}
+// a workaround for a GM bug where extension doesn't initialize in debug mode:
+if (!variable_global_exists("g_live_log_script")) live_preinit();
+
+// change IP/port here if you connect to remote gmlive-server:
+live_init(1, "http://127.0.0.1:5100", "");
+
+#event step
+live_update();
+
+#event async_http
+live_async_http();
+
+#event async_network
+var q = global.netlog_net_script;
+if (q >= 0) script_execute(q);
+
+#event draw An example
+if (live_call()) return live_result;
+/*
+draw_set_color(c_blue);
+draw_text(5, 5, "Try changing something here and saving!");
+*/
