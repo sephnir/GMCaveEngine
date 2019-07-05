@@ -19,6 +19,9 @@ if(!blockd){
             scr_set_anim(spriteIndex, A_FALL, 0);
     }
 }
+else if(lookaway){
+    scr_set_anim(spriteIndex, A_INSPECT, 0);
+}
 else if(walking){
     if(curVertDir == -1)
         scr_set_anim(spriteIndex, A_WALKUP, 0.15);

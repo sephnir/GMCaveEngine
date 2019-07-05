@@ -1,5 +1,7 @@
 ///scr_textbox_drawFrame(x,y,w,h);
 
+if (live_call()) return live_result;
+
 var TXT_UNIT = 16;
 var POSX = argument0;
 var POSY = argument1;

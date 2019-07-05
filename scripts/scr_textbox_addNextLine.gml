@@ -1,3 +1,5 @@
+if (live_call()) return live_result;
+
 ds_list_add(msgDisplayedText, "");
 
 //Clears the oldest line if there are more than 3
@@ -5,3 +7,4 @@ if( ds_list_size(msgDisplayedText) > 3 && !msgTextLineAtOnce ) msgTextScroll = t
 
 if(ds_list_size(msgDisplayedText)> 3 && msgTextLineAtOnce )
     ds_list_delete(msgDisplayedText,0);
+

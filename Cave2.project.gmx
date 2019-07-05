@@ -225,6 +225,7 @@
       <sprite>sprites\spr_splash</sprite>
       <sprite>sprites\spr_lightball</sprite>
       <sprite>sprites\spr_lightball_mini</sprite>
+      <sprite>sprites\spr_expression</sprite>
     </sprites>
     <sprites name="Lens Flare">
       <sprite>sprites\Siris</sprite>
@@ -261,7 +262,9 @@
       <script>scripts\scr_player_aftermove.gml</script>
       <script>scripts\scr_player_repel.gml</script>
       <script>scripts\scr_player_sound.gml</script>
+      <script>scripts\scr_player_looking.gml</script>
     </scripts>
+    <script>scripts\scr_player_interact.gml</script>
     <scripts name="animation">
       <script>scripts\scr_set_anim.gml</script>
       <script>scripts\scr_play_anim.gml</script>
@@ -295,8 +298,8 @@
         <script>scripts\scr_textbox_drawTextbox.gml</script>
         <script>scripts\scr_textbox_drawFace.gml</script>
         <script>scripts\scr_textbox_addNextChar.gml</script>
-        <script>scripts\scr_textbox_addNextLine.gml</script>
         <script>scripts\scr_textbox_drawFrame.gml</script>
+        <script>scripts\scr_textbox_addNextLine.gml</script>
         <script>scripts\scr_textbox_destructor.gml</script>
         <script>scripts\scr_textbox_setText.gml</script>
         <script>scripts\scr_textbox_clearText.gml</script>
@@ -341,6 +344,9 @@
       <objects name="emitters">
         <object>objects\obj_bubble_emiitter</object>
         <object>objects\obj_droplet_emitter</object>
+      </objects>
+      <objects name="expression">
+        <object>objects\obj_qmark</object>
       </objects>
     </objects>
     <object>objects\obj_gmlive</object>

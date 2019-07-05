@@ -15,6 +15,8 @@ disabled = false;
 hide = false;
 jumping = false;
 
+lookScrollWant = 0;
+
 inputsLocked = false;
 inputsLockedPrev = true;
 

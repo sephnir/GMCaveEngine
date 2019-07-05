@@ -104,3 +104,4 @@ if(msgCursorVisible && msgCursorTimer<7 )
 surface_reset_target();
 
 draw_surface(msgContentSurface, view_xview[0]+MSG_X+MSG_CONTENT_X, view_yview[0]+yPos+MSG_CONTENT_Y);
+

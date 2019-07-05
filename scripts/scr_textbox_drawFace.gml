@@ -37,12 +37,12 @@ if(msgEyesIndex>=0){
     draw_sprite(spr_portrait_eyes, eyesInd+eyesAnim, 0,0);
 }
 
-//Mouth+Talk animation(TODO)
+//Mouth+Talk animation
 if(msgMouthIndex>=0){
     var mouthInd = msgMouthIndex*4;
     var mouthAnim = msgMouthSeq+1;
     if(mouthAnim==4) mouthAnim=2;
-    
+
     draw_sprite(spr_portrait_mouth, mouthInd+mouthAnim, 0,0);
 }
 
