@@ -3,10 +3,29 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles"/>
+  <datafiles number="2" name="datafiles">
+    <datafiles number="2" name="script">
+      <datafile>
+        <name>fcave.txt</name>
+        <exists>-1</exists>
+        <size>7</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>fcave.txt</filename>
+      </datafile>
+    </datafiles>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Lens flare</extension>
-    <extension index="1">extensions\Dynamic Lights &amp; Shadows</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\bgm_trapped</sound>
@@ -44,11 +63,18 @@
     <sprites name="text">
       <sprite>sprites\spr_text_sheet</sprite>
     </sprites>
+    <sprites name="portrait">
+      <sprite>sprites\spr_portrait_base</sprite>
+      <sprite>sprites\spr_portrait_eyes</sprite>
+      <sprite>sprites\spr_portrait_mouth</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_maze</background>
     <background>background\tile_cave</background>
     <background>background\tile_shadow</background>
+    <background>background\bk_cave</background>
+    <background>background\background4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -75,18 +101,21 @@
     <script>scripts\scr_draw_lensflare.gml</script>
     <scripts name="controller">
       <scripts name="dialog">
-        <script>scripts\scr_textbox.gml</script>
         <script>scripts\scr_dialog.gml</script>
+        <script>scripts\scr_textbox.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\draw_tiles.gml</script>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shd_green.shader</shader>
+    <shader type="GLSLES">shaders\shd_dark.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_text</font>
+    <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
+    <object>objects\object13</object>
     <object>objects\obj_player</object>
     <object>objects\obj_controller</object>
     <object>objects\obj_blocks</object>
@@ -101,13 +130,19 @@
       <objects name="water">
         <object>objects\obj_splash</object>
         <object>objects\obj_droplet</object>
+        <object>objects\obj_minidroplet</object>
         <object>objects\obj_bubble</object>
       </objects>
       <objects name="lighting">
         <object>objects\obj_light</object>
+        <objects name="tileShadow">
+          <object>objects\obj_darken_starter</object>
+          <object>objects\obj_darken_ender</object>
+        </objects>
       </objects>
       <objects name="emitters">
         <object>objects\obj_bubble_emiitter</object>
+        <object>objects\obj_droplet_emitter</object>
       </objects>
     </objects>
   </objects>
@@ -115,7 +150,8 @@
     <room>rooms\rm_firstcave</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="1">
+  <constants number="2">
+    <constant name="UNIT">32</constant>
     <constant name="CSF">256</constant>
   </constants>
   <help>

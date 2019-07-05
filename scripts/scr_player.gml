@@ -76,6 +76,9 @@ disabled = false;
 hide = false;
 jumping = false;
 
+inputsLocked = false;
+inputsLockedPrev = true;
+
 prevImageIndex = 0;
 prevWalking = false;
 
@@ -101,16 +104,18 @@ prevState = physicsType.LAND;
 #define scr_player_jump
 
 //Check jump
-if (keyboard_check_pressed(obj_controller.btnJump))
-  {
-    if (blockd)
-    {
-      if (!jumping)
+if(!disabled && !inputsLocked){
+    if (keyboard_check_pressed(obj_controller.btnJump))
       {
-        jumping = true;
-        yInertia -= JUMP_VELOCITY[state];
-        audio_play_sound(snd_player_jump,10,false);
-      }
+        if (blockd)
+        {
+          if (!jumping)
+          {
+            jumping = true;
+            yInertia -= JUMP_VELOCITY[state];
+            audio_play_sound(snd_player_jump,10,false);
+          }
+        }
     }
 }
 
@@ -125,50 +130,55 @@ if(blockd)
 else 
     walkAccel = JUMP_WALK_ACCEL[state];
 
-//Check Up/Down
-if(keyboard_check(obj_controller.btnUp)){
-    curVertDir = -1;
-}
-else if(!blockd && keyboard_check(obj_controller.btnDown)){
-    curVertDir = 1;
+if(!disabled && !inputsLocked){
+    //Check Up/Down
+    if(keyboard_check(obj_controller.btnUp)){
+        curVertDir = -1;
+    }
+    else if(!blockd && keyboard_check(obj_controller.btnDown)){
+        curVertDir = 1;
+    }
+    else{
+        curVertDir = 0;
+    }
+        
+    //Check left
+    if(keyboard_check(obj_controller.btnLeft)){
+        curdir = -1;
+        walking = true;
+        
+        if(xInertia > -WALK_SPEED[state]){
+            xInertia -= WALK_ACCEL[state];
+            
+            if(xInertia < -WALK_SPEED[state]){
+                xInertia = -WALK_SPEED[state];
+            }
+        }
+        
+    }
+    
+    else
+    //Check right
+    if(keyboard_check(obj_controller.btnRight)){
+        curdir = 1;
+        walking = true;
+        
+        if(xInertia < WALK_SPEED[state]){
+            xInertia += WALK_ACCEL[state];
+            
+            if(xInertia > WALK_SPEED[state]){
+                xInertia = WALK_SPEED[state];
+            }
+        }
+    }
+    
+    else
+    //No movement
+    {
+        walking = false;
+    }
 }
 else{
-    curVertDir = 0;
-}
-    
-//Check left
-if(keyboard_check(obj_controller.btnLeft)){
-    curdir = -1;
-    walking = true;
-    
-    if(xInertia > -WALK_SPEED[state]){
-        xInertia -= WALK_ACCEL[state];
-        
-        if(xInertia < -WALK_SPEED[state]){
-            xInertia = -WALK_SPEED[state];
-        }
-    }
-    
-}
-
-else
-//Check right
-if(keyboard_check(obj_controller.btnRight)){
-    curdir = 1;
-    walking = true;
-    
-    if(xInertia < WALK_SPEED[state]){
-        xInertia += WALK_ACCEL[state];
-        
-        if(xInertia > WALK_SPEED[state]){
-            xInertia = WALK_SPEED[state];
-        }
-    }
-}
-
-else
-//No movement
-{
     walking = false;
 }
 
@@ -344,6 +354,13 @@ else if (blocku && yInertia < 0)
       
 }
 
+
+if(obj_controller.msgVisible){
+    inputsLocked = true;
+}
+else{
+    inputsLocked = false;
+}
 
 prevWalking = walking;
 

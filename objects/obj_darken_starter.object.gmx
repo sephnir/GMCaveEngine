@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3000</depth>
-  <persistent>-1</persistent>
+  <depth>-100</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,47 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Init
+            <string>size = shader_get_uniform(shd_dark,"size");
+dis = shader_get_uniform(shd_dark,"dis");
 
-//Button setup
-btnLeft = vk_left;
-btnRight = vk_right;
-btnUp = vk_up;
-btnDown = vk_down;
-btnJump = ord('Z');
-btnShoot = ord('X');
-btnMap = ord('Q');
-btnInv = ord('W');
-btnWpnUp = ord('A');
-btnWpnDown = ord('S');
-btnPause = vk_escape;
-
-//Textbox setup
-scr_textbox();
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Play bgm
-audio_play_sound(bgm_trapped, 5,true);
+surf = surface_create(view_wview[0]+UNIT*2, view_hview[0]+UNIT*2);
 </string>
           </argument>
         </arguments>
@@ -88,26 +51,10 @@ audio_play_sound(bgm_trapped, 5,true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_textbox_destructor();
+            <string>surface_free(surf);
 </string>
           </argument>
         </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>223</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_current_room</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
@@ -127,37 +74,26 @@ audio_play_sound(bgm_trapped, 5,true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(10,10,"xinertia:"+ string( obj_player.xInertia));
-draw_text(10,30,"yinertia:"+ string( obj_player.yInertia));
-draw_text(10,50,"x diff:"+ string( obj_player.x - obj_player.xprevious));
-draw_text(10,70,"y diff:"+ string( obj_player.y - obj_player.yprevious));
-draw_text(10,90,"onSlopeL:"+ string( obj_player.onSlopeL));
-draw_text(10,110,"onSlopeR:"+ string( obj_player.onSlopeR));
+            <string>if(!surface_exists(surf)){
+    surf = surface_create(view_wview[0]+UNIT*2, view_hview[0]+UNIT*2);
+}
 
-scr_textbox_drawTextbox();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="69">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>scr_textbox_setText("The quick brown fox jumps over the lazy dog.");
+surface_set_target(surf);
+draw_clear_alpha(c_black,0);
+
+draw_tiles(-100,view_xview[0]-UNIT,view_yview[0]-UNIT,room_width+UNIT*2, room_height+UNIT*2);
+
+surface_reset_target();
+
+shader_set(shd_dark);
+
+draw_surface(surf,view_xview[0]-UNIT,view_yview[0]-UNIT);
+
+shader_set_uniform_f(size,view_wview[0]+UNIT*2,view_hview[0]+UNIT*2,48,48)//resolution x, resolution y, block x, block y
+shader_set_uniform_f(dis,0.9,0.6,0.3)//distance 
+
+shader_reset();
+
 </string>
           </argument>
         </arguments>
