@@ -206,13 +206,12 @@
       <sound>sound\snd_thud</sound>
       <sound>sound\snd_bonk_head</sound>
       <sound>sound\snd_splash</sound>
+      <sounds name="message">
+        <sound>sound\snd_msg</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_block</sprite>
-    <sprite>sprites\spr_water</sprite>
-    <sprite>sprites\spr_slope</sprite>
-    <sprite>sprites\spr_slope_lr</sprite>
     <sprites name="characters">
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_berserk_player</sprite>
@@ -239,6 +238,13 @@
       <sprite>sprites\spr_portrait_base</sprite>
       <sprite>sprites\spr_portrait_eyes</sprite>
       <sprite>sprites\spr_portrait_mouth</sprite>
+    </sprites>
+    <sprite>sprites\spr_slope</sprite>
+    <sprites name="invisible">
+      <sprite>sprites\spr_block</sprite>
+      <sprite>sprites\spr_water</sprite>
+      <sprite>sprites\spr_slope_lr</sprite>
+      <sprite>sprites\spr_script</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -313,6 +319,7 @@
         <script>scripts\scr_action_notify.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scr_setup_script.gml</script>
     <scripts name="util">
       <script>scripts\string_split.gml</script>
       <script>scripts\draw_tiles.gml</script>
@@ -327,7 +334,7 @@
     <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
-    <object>objects\object13</object>
+    <object>objects\obj_activeScript</object>
     <object>objects\obj_player</object>
     <object>objects\obj_controller</object>
     <object>objects\obj_blocks</object>

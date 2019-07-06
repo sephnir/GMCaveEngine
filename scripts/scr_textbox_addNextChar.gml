@@ -26,8 +26,11 @@ if(msgTextLineAtOnce) {
 }
 
 if( string_length(ds_list_find_value(msgWaitingText,0))>0 ){
+    var char = string_char_at( ds_list_find_value(msgWaitingText,0) , 0 );
     ds_list_replace( msgDisplayedText, lastEntry, ds_list_find_value(msgDisplayedText,lastEntry) + string_char_at( ds_list_find_value(msgWaitingText,0) , 0 ) );
     ds_list_replace( msgWaitingText, 0 ,string_delete( ds_list_find_value(msgWaitingText,0),1,1 ) );
+    
+    if(char != " ") audio_play_sound(snd_msg,10,false);
     
     msgMouthSeq = (msgMouthSeq+1) mod 8;
     msgCursorVisible = false;
