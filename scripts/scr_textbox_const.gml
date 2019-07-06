@@ -25,6 +25,5 @@ MSG_MAXLINELEN_NO_FACE = 35;
 enum TEXTBOX_TYPE {
     BOTTOM = 0,
     TOP = 1
-}
-
+};
 

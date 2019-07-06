@@ -1,6 +1,7 @@
 if (live_call()) return live_result;
 
 if(ds_list_size(msgWaitingText) == 0) exit;
+if(ds_list_size(msgDisplayedText) == 0) scr_textbox_addNextLine();
 
 var lastEntry = ds_list_size(msgDisplayedText)-1;
     
@@ -28,7 +29,7 @@ if( string_length(ds_list_find_value(msgWaitingText,0))>0 ){
     ds_list_replace( msgDisplayedText, lastEntry, ds_list_find_value(msgDisplayedText,lastEntry) + string_char_at( ds_list_find_value(msgWaitingText,0) , 0 ) );
     ds_list_replace( msgWaitingText, 0 ,string_delete( ds_list_find_value(msgWaitingText,0),1,1 ) );
     
-    msgMouthSeq = (msgMouthSeq+1) mod 4;
+    msgMouthSeq = (msgMouthSeq+1) mod 8;
     msgCursorVisible = false;
     
     if(string_length(ds_list_find_value(msgDisplayedText,lastEntry)) >= limit-1){

@@ -92,8 +92,7 @@ ctimer++;
 
 if(ctimer mod 4 == 0){
     image_index = floor(random(5));
-    image_alpha = 0.5 + random(0.5);
-    
+    //image_alpha = 0.5 + random(0.5);
 }
 
 if(ctimer &gt; IFRAME){

@@ -40,20 +40,21 @@ if(msgEyesIndex>=0){
 //Mouth+Talk animation
 if(msgMouthIndex>=0){
     var mouthInd = msgMouthIndex*4;
-    var mouthAnim = msgMouthSeq+1;
+    var mouthAnim = floor(msgMouthSeq/2)+1;
     if(mouthAnim==4) mouthAnim=2;
 
     draw_sprite(spr_portrait_mouth, mouthInd+mouthAnim, 0,0);
 }
 
 //Slide-in animation
-if(msgFaceXOffset<0){
+if(msgFaceXOffset<0 && msgVisible){
     msgFaceXOffset += sprite_get_width(spr_portrait_base)/6;
-    msgFaceXOffset = min(0, 0);
+    msgFaceXOffset = min(0, msgFaceXOffset);
 }
 
 surface_reset_target();
 
 draw_surface(msgFaceSurface,msgFaceXOffset,0)
+
 
 

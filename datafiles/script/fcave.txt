@@ -1,7 +1,13 @@
 #fio_fc
 FAC 0 0 0
 CLR
+MSG It seems dangerous.
 MSG Please be careful.
 FAC 1 1 1
 CLR
 MSG I'll be right back.
+
+#rock_fc
+FAC -1 -1 -1
+CLR
+MSG Its a rock.

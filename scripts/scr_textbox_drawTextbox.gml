@@ -26,6 +26,7 @@ if(keyboard_check_pressed(obj_controller.btnJump)){
     if(ds_list_size(msgWaitingText) > 0){
         if(string_length( ds_list_find_value(msgWaitingText,0)) == 0){
             ds_list_delete(msgWaitingText,0);
+            scr_textbox_checkAction();
             scr_textbox_addNextLine();
         }
     }
@@ -95,7 +96,8 @@ for(i=1; i< dTextSize; i++ ){
 
 draw_set_font(fnt_text);
 
-draw_text_colour(xPos, msgTextYOffset, constructedText,c_white,c_white,c_white,c_white,1);
+if(constructedText != undefined)
+    draw_text_colour(xPos, msgTextYOffset, constructedText,c_white,c_white,c_white,c_white,1);
 
 if(msgCursorVisible && msgCursorTimer<7 )
     draw_rectangle( xPos+string_width(string(ds_list_find_value(msgDisplayedText, dTextSize-1))), string_height("W")*(dTextSize-1)*2,

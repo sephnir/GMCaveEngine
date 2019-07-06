@@ -271,7 +271,6 @@
       <script>scripts\scr_init_anim.gml</script>
       <script>scripts\scr_draw_self_centered.gml</script>
     </scripts>
-    <script>scripts\array.gml</script>
     <scripts name="collision">
       <script>scripts\scr_apply_xInertia.gml</script>
       <script>scripts\scr_apply_yInertia.gml</script>
@@ -296,7 +295,6 @@
         <script>scripts\scr_textbox_const.gml</script>
         <script>scripts\scr_textbox_state.gml</script>
         <script>scripts\scr_textbox_drawTextbox.gml</script>
-        <script>scripts\scr_textbox_drawFace.gml</script>
         <script>scripts\scr_textbox_addNextChar.gml</script>
         <script>scripts\scr_textbox_drawFrame.gml</script>
         <script>scripts\scr_textbox_addNextLine.gml</script>
@@ -304,9 +302,22 @@
         <script>scripts\scr_textbox_setText.gml</script>
         <script>scripts\scr_textbox_clearText.gml</script>
         <script>scripts\scr_textbox_setFace.gml</script>
+        <script>scripts\scr_textbox_checkAction.gml</script>
+        <script>scripts\scr_textbox_drawFace.gml</script>
+      </scripts>
+      <scripts name="action">
+        <script>scripts\scr_action.gml</script>
+        <script>scripts\scr_action_destructor.gml</script>
+        <script>scripts\scr_action_add.gml</script>
+        <script>scripts\scr_action_readScript.gml</script>
+        <script>scripts\scr_action_notify.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\draw_tiles.gml</script>
+    <scripts name="util">
+      <script>scripts\string_split.gml</script>
+      <script>scripts\draw_tiles.gml</script>
+      <script>scripts\array.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_dark.shader</shader>
@@ -350,6 +361,7 @@
       </objects>
     </objects>
     <object>objects\obj_gmlive</object>
+    <object>objects\obj_globalController</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_firstcave</room>

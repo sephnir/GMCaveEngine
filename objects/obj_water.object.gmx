@@ -30,7 +30,7 @@
  You can also set all these variables in the creation code of the
  instance in the room editor for more customized water bodies.
 */
-color1 = make_colour_rgb(106,156,202) //merge_color(c_blue,c_aqua,.5); //The color of the water.
+color1 = make_colour_rgb(100,114,207) //merge_color(c_blue,c_aqua,.5); //The color of the water.
 color2 = merge_color(c_blue,c_aqua,.5);
 image_alpha = .6; //The density/see-thoughness of the water.
 
