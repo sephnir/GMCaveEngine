@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.string_split_list = ds_list_create();
+            <string>if (live_call()) return live_result;
+
+global.string_split_list = ds_list_create();
+
+fnt_number = font_add_sprite_ext(spr_numberFont, "0123456789",  true, 1);
 </string>
           </argument>
         </arguments>

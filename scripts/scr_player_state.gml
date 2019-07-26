@@ -4,6 +4,9 @@ if (live_call()) return live_result;
 
 spriteIndex = spr_player;
 
+maxhp = 3;
+hp = 3;
+
 curdir = -1;
 curVertDir = 0;
 
